@@ -25,27 +25,24 @@ const logger = (req, res, next) => {
     //그렇기 때문에 next를 빼주면 gossipMiddleware만 작동된다.
 };
 
-const privateMiddleWare = (req, res, next) => {
+const privateMiddleWare = (req, res) => {
     return res.send("여기는 비밀의 방이야")
 };
 
 const protector = (req, res, next) => {
     const url = req.url
     if (url === "/protected") {
-        console.log("진입불가능한 곳입니다.")
+        console.log("허용되지 않는 페이지 입니다.")
         res.send("허용되지 않은 페이지 입니다.")
-    } else if (url === "/parceltongue/protected") {
-        console.log("진입 가능한 곳입니다.")
-        res.send("허용된 페이지 입니다.")
+    } else {
+        console.log("허용되는 페이지 입니다.")
         next();
-    } else if {
-        console.log("허용된 페이지 입니다.")
     }
 }
 
 // protected  된 페이지를 들어가려고 하면 if 문에 의해 들어갈 수 없고 아닌 경우 허용됨이 표시되게 하기
 app.use(logger)
-app.use(protector, privateMiddleWare)
+app.use(protector)
 app.get("/", handleHome);
 app.get("/login", handleLogin)
 app.get("/protected", privateMiddleWare)
