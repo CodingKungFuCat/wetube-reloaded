@@ -6,14 +6,16 @@
 /search -> Search
 
 
-/users/edit -> Edit Useres
-/users/delete -> Delete Users
+/users/:id -> See User
+/users/logout -> Log Out
+/users/edit -> Edit My Profile
+/users/delete -> Delete My Profile
 
 <!-- -----------------------usersl router------------------------------------------ -->
 
 
-/videos/watch -> Watch video
-/videos/edit -> Edit videos
-/videos/delete -> Delete videos
-/videos/comments -> Comments on a video
+/videos/:id -> See video
+/videos/:id/eidt -> Edit video
+/videos/:id/delete -> Delete videos
+/videos/upload -> Upload Video
 <!-- -----------------------videos router------------------------------------------ -->
