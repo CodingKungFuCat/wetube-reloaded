@@ -1,26 +1,14 @@
 import express from "express";
 import nodemon from "nodemon";
 import morgan from "morgan"
+import globalRouter from "./globalRouter";
+import usersRouter from "./usersRouter";
+import vidoesRouter from "./videosRouter";
 
 const app = express();
 const loggerMiddleWare = morgan("dev");
 const PORT = 4000;
 
-
-const globalRouter = express.Router();
-
-const handleHome = (req, res) => res.send("Home");
-globalRouter.get("/", handleHome);
-
-const usersRouter = express.Router();
-
-const handleEditUser = (req, res) => res.send("Edit Users");
-usersRouter.get("/Edit", handleEditUser);
-
-const vidoesRouter = express.Router();
-
-const handleWatchVideos = (req, res) => res.send("Watch Videos")
-vidoesRouter.get("/Watch", handleWatchVideos);
 
 app.use(loggerMiddleWare)
 app.use("/", globalRouter)
