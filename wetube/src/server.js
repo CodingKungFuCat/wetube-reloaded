@@ -9,7 +9,8 @@ const app = express();
 const loggerMiddleWare = morgan("dev");
 const PORT = 4000;
 
-
+app.set("view engine", "pug")
+app.set("views", process.cwd() + "/src/views")
 app.use(loggerMiddleWare)
 app.use("/", globalRouter)
 app.use("/users", usersRouter)
