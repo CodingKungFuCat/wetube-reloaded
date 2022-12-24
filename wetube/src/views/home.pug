@@ -3,3 +3,8 @@ extends base.pug
 
 block content 
         h3 welcome you will see trending video
+        ul 
+        each video in videos
+                li=video
+        else 
+                li 죄송합니다. 데이터를 불러올 수 없습니다.
