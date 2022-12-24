@@ -1,7 +1,23 @@
 doctype html 
 html(lang="ko")
     head
-        block head
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css")
+        title #{pageTitle} | wetube
     body 
-        block content
-    include partials/footer.pug
+       main 
+        header 
+        if fakeUsers.loggedIn 
+            small hello #{fakeUsers.username}
+            nav
+                ul  
+                if fakeUsers.loggedIn
+                    li
+                        a(href="/logout")    Log Out 
+                else
+                    li
+                        a(href="/login")    Login              
+            h1=pageTitle
+      
+                block content
+                br
+                include partials/footer.pug

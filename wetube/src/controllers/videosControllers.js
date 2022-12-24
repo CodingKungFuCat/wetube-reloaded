@@ -1,6 +1,11 @@
-export const trending = (req, res) => res.render("home")
-export const see = (req, res) => res.render("watch")
-export const edit = (req, res) => res.render("edit")
-export const Search = (req, res) => res.send("Search Videos")
-export const Upload = (req, res) => res.send("Upload Video")
-export const Delete = (req, res) => res.send("Delete Video")
+const fakeUsers = {
+    username: "jinwoo",
+    loggedIn: true
+}
+
+export const trending = (req, res) => res.render("home", { pageTitle: "home", fakeUsers })
+export const see = (req, res) => res.render("watch", { pageTitle: "watch" })
+export const edit = (req, res) => res.render("edit", { pageTitle: "edit" })
+export const Search = (req, res) => res.send("Search Videos", { pageTitle: "search" })
+export const Upload = (req, res) => res.send("Upload Video", { pageTitle: "upload" })
+export const Delete = (req, res) => res.send("Delete Video", { pageTitle: "delete" })
