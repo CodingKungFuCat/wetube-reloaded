@@ -1,4 +1,4 @@
-import express from "express";
+import express from "express"
 import nodemon from "nodemon";
 import morgan from "morgan"
 import globalRouter from "./globalRouter";
@@ -8,6 +8,7 @@ import vidoesRouter from "./videosRouter";
 const app = express();
 const loggerMiddleWare = morgan("dev");
 const PORT = 4000;
+
 
 app.set("view engine", "pug")
 app.set("views", process.cwd() + "/src/views")
