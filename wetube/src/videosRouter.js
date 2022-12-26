@@ -1,14 +1,12 @@
 import express from "express";
-import { edit, see, Upload, Delete } from "./controllers/videosControllers";
+import { postEdit, getEdit, watch, Upload, Delete } from "./controllers/videosControllers";
 
 const vidoesRouter = express.Router();
 
 
 
 
-vidoesRouter.get("/:id(\\d+)", see);
-vidoesRouter.get("/:id(\\d+)/edit", edit);
-vidoesRouter.get("/:id(\\d+)/delete", Delete);
-vidoesRouter.get("/upload", Upload);
+vidoesRouter.get("/:id(\\d+)", watch);
+vidoesRouter.route("/:id(\\d+)/edit").get(getEdit).post(postEdit);
 
 export default vidoesRouter

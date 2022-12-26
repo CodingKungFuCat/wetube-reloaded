@@ -2,4 +2,8 @@ extends base.pug
 
 
 block content 
-    h1 Edit Video
+    h4 Change Vido Title 
+    form(method="POST")
+        input(placeholder = "New Title", value=video.title, required)
+        input(value = "save", type="submit")
+//- form 다음에 나오는것을 들여쓰기를 해야지 form 안에 들어간다

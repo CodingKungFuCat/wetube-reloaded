@@ -12,7 +12,7 @@ const videos = [
         rating: 3.2,
         comments: 4,
         createAt: "2minutes ago",
-        views: 12,
+        views: 1,
         id: 2
     },
     {
@@ -26,14 +26,21 @@ const videos = [
 ];
 
 export const trending = (req, res) => {
-    res.render("home", { pageTitle: "home", videos })
+    return res.render("home", { pageTitle: "home", videos })
 }
-export const see = (req, res) => {
+export const watch = (req, res) => {
     const { id } = req.params;
     const video = videos[id - 1]
-    res.render("watch", { pageTitle: `watching ${video.title}` })
+    return res.render("watch", { pageTitle: `watching: ${video.title}`, video })
 }
-export const edit = (req, res) => res.render("edit", { pageTitle: "edit" })
-export const Search = (req, res) => res.send("Search Videos", { pageTitle: "search" })
-export const Upload = (req, res) => res.send("Upload Video", { pageTitle: "upload" })
-export const Delete = (req, res) => res.send("Delete Video", { pageTitle: "delete" })
+export const getEdit = (req, res) => {
+    const { id } = req.params;
+    const video = videos[id - 1]
+    return res.render("edit", { pageTitle: `Editing: ${video.title}`, video })
+}
+export const postEdit = (req, res) => {
+    const { id } = req.params;
+    console.log(req.body)
+    return res.redirect(`/videos/${id}`)
+}
+

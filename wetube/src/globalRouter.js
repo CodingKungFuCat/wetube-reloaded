@@ -8,6 +8,6 @@ const globalRouter = express.Router();
 globalRouter.get("/", trending);
 globalRouter.get("/join", join);
 globalRouter.get("/login", Login);
-globalRouter.get("/search", Search);
+
 
 export default globalRouter
