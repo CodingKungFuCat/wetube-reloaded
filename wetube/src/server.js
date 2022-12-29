@@ -1,3 +1,4 @@
+import db from "./db";
 import express from "express"
 import nodemon from "nodemon";
 import morgan from "morgan"
@@ -9,7 +10,7 @@ const app = express();
 const loggerMiddleWare = morgan("dev");
 const PORT = 4000;
 
-
+//ReferenceError: TextEncoder is not defined
 app.set("view engine", "pug")
 app.set("views", process.cwd() + "/src/views")
 app.use(loggerMiddleWare)
