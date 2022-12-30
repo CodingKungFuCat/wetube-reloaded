@@ -1,10 +1,11 @@
-import db from "./db";
+const connectDB = require("./db")
 import express from "express"
 import nodemon from "nodemon";
 import morgan from "morgan"
 import globalRouter from "./globalRouter";
 import usersRouter from "./usersRouter";
 import vidoesRouter from "./videosRouter";
+
 
 const app = express();
 const loggerMiddleWare = morgan("dev");
